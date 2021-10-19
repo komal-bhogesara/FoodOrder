@@ -17,7 +17,7 @@
             }
         ?>
 
-        <br/><br/>
+        <br><br>
 
         <!-- Add category form start -->
         <form action="" method="POST" enctype="multipart/form-data">
@@ -58,7 +58,7 @@
         <?php
             if(isset($_POST['submit'])){
                 $title = $_POST['title'];
-                //for radio input time we need to check whether the button is selected or not
+                //for radio input, we need to check whether the button is selected or not
                 if(isset($_POST['featured'])){
                     $featured = $_POST['featured'];
                 } else {
@@ -70,10 +70,21 @@
                     $active = "No";
                 }
 
+                // print_r($_FILES['image']);
+                // die();
+
                 if(isset($_FILES['image']['name'])){
                     //upload image
                     //to upload image we need img name, source and destination path
                     $image_name = $_FILES['image']['name'];
+
+                    //Auto rename our image
+                    // Get extension of image(jpg, png, gif)
+                    $ext = end(explode('.', $image_name)); 
+
+                    // Rename the image
+                    $image_name = "Food_Category_".rand(000, 999).'.'.$ext;
+
                     $source_path = $_FILES['image']['tmp_name'];
                     $destination_path = "../images/category/".$image_name;
 
@@ -84,6 +95,7 @@
                     if($upload == false){
                         $_SESSION['upload'] = "<div class='error'>Failed to upload image.</div>";
                         header('location:'.SITEURL.'admin/add-category.php');
+                        // Stop the process
                         die();
                     } 
 
