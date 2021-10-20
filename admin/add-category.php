@@ -22,37 +22,37 @@
         <!-- Add category form start -->
         <form action="" method="POST" enctype="multipart/form-data">
              <table class="tbl-30">
-                 <tr>
-                     <td>Title: </td>
-                     <td><input type="text" name="title" placeholder="Category Title"></td>
-                 </tr>
-                 <tr>
-                     <td>Select Image: </td>
-                     <td>
-                         <input type="file" name="image">
-                    </td>
-                 </tr>
-                 <tr>
-                     <td>Featured: </td>
-                     <td>
-                         <input type="radio" name="featured" value="Yes">Yes
-                         <input type="radio" name="featured" value="No">No
-                    </td>
-                 </tr>
-                 <tr>
-                     <td>Active: </td>
-                     <td>
-                         <input type="radio" name="active" value="Yes">Yes
-                         <input type="radio" name="active" value="No">No
+                <tr>
+                    <td>Title: </td>
+                    <td><input type="text" name="title" placeholder="Category Title"></td>
+                </tr>
+                <tr>
+                    <td>Select Image: </td>
+                    <td>
+                        <input type="file" name="image">
+                </td>
+                </tr>
+                <tr>
+                    <td>Featured: </td>
+                    <td>
+                        <input type="radio" name="featured" value="Yes">Yes
+                        <input type="radio" name="featured" value="No">No
+                </td>
+                </tr>
+                <tr>
+                    <td>Active: </td>
+                    <td>
+                        <input type="radio" name="active" value="Yes">Yes
+                        <input type="radio" name="active" value="No">No
 
+                </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" value="Add Category" class="btn-secondary">
                     </td>
-                 </tr>
-                 <tr>
-                     <td colspan="2">
-                         <input type="submit" name="submit" value="Add Category" class="btn-secondary">
-                     </td>
-                 </tr>
-             </table>
+                </tr>
+            </table>
         </form>
         <!-- Add category form end -->
         <?php
@@ -77,27 +77,30 @@
                     //upload image
                     //to upload image we need img name, source and destination path
                     $image_name = $_FILES['image']['name'];
+                    
+                    // Upload only if image name is available
+                    if ($image_name != "") {
+                        //Auto rename our image
+                        // Get extension of image(jpg, png, gif)
+                        $ext = end(explode('.', $image_name)); 
 
-                    //Auto rename our image
-                    // Get extension of image(jpg, png, gif)
-                    $ext = end(explode('.', $image_name)); 
+                        // Rename the image
+                        $image_name = "Food_Category_".rand(000, 999).'.'.$ext;
 
-                    // Rename the image
-                    $image_name = "Food_Category_".rand(000, 999).'.'.$ext;
+                        $source_path = $_FILES['image']['tmp_name'];
+                        $destination_path = "../images/category/".$image_name;
 
-                    $source_path = $_FILES['image']['tmp_name'];
-                    $destination_path = "../images/category/".$image_name;
+                        //finally upload image
+                        $upload = move_uploaded_file($source_path, $destination_path);
 
-                    //finally upload image
-                    $upload = move_uploaded_file($source_path, $destination_path);
-
-                    //check whether img is uploaded
-                    if($upload == false){
-                        $_SESSION['upload'] = "<div class='error'>Failed to upload image.</div>";
-                        header('location:'.SITEURL.'admin/add-category.php');
-                        // Stop the process
-                        die();
-                    } 
+                        //check whether img is uploaded
+                        if($upload == false){
+                            $_SESSION['upload'] = "<div class='error'>Failed to upload image.</div>";
+                            header('location:'.SITEURL.'admin/add-category.php');
+                            // Stop the process
+                            die();
+                        } 
+                    }
 
                 } else {
                     //dont upload the image
