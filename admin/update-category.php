@@ -136,13 +136,12 @@
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload Image. </div>";
                             //Redirect to Add CAtegory Page
                             header('location:'.SITEURL.'admin/manage-category.php');
-                            //STop the Process
+                            //Stop the Process
                             die();
                         }
 
                         //B. Remove the Current Image if available
-                        if($current_image!="")
-                        {
+                        if($current_image!="") {
                             $remove_path = "../images/category/".$current_image;
 
                             $remove = unlink($remove_path);
@@ -160,13 +159,11 @@
                         
 
                     }
-                    else
-                    {
+                    else {
                         $image_name = $current_image;
                     }
                 }
-                else
-                {
+                else {
                     $image_name = $current_image;
                 }
                 
@@ -185,14 +182,12 @@
 
                 //4. Redirect to Manage Category with Message
                 //CHeck whether executed or not
-                if($res2==true)
-                {
+                if($res2==true) {
                     //Category Updated
                     $_SESSION['update'] = "<div class='success'>Category Updated Successfully.</div>";
                     header('location:'.SITEURL.'admin/manage-category.php');
                 }
-                else
-                {
+                else {
                     //failed to update category
                     $_SESSION['update'] = "<div class='error'>Failed to Update Category.</div>";
                     header('location:'.SITEURL.'admin/manage-category.php');

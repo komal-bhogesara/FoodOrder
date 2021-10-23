@@ -1,6 +1,4 @@
-<?php 
-    include("partials/menu.php");
-?>
+<?php include("partials/menu.php"); ?>
 <div class="main-content">
     <div class="wrapper">
         <h1>Add Category</h1>
@@ -45,7 +43,7 @@
                         <input type="radio" name="active" value="Yes">Yes
                         <input type="radio" name="active" value="No">No
 
-                </td>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2">
@@ -126,6 +124,4 @@
     </div>
 </div>
 
-<?php 
-    include("partials/footer.php");
-?>
+<?php include("partials/footer.php"); ?>
