@@ -107,7 +107,7 @@
                 //Add the Food in Database
                 //echo "Clicked";
                 
-                //1. Get the DAta from Form
+                //1. Get the Data from Form
                 $title = $_POST['title'];
                 $description = $_POST['description'];
                 $price = $_POST['price'];
@@ -169,7 +169,7 @@
                             //REdirect to Add Food Page with Error Message
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload Image.</div>";
                             header('location:'.SITEURL.'admin/add-food.php');
-                            //STop the process
+                            //Stop the process
                             die();
                         }
 
@@ -178,7 +178,7 @@
                 }
                 else
                 {
-                    $image_name = ""; //SEtting DEfault Value as blank
+                    $image_name = ""; //Setting Default Value as blank
                 }
 
                 //3. Insert Into Database

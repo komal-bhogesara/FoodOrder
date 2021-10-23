@@ -7,11 +7,26 @@
 
         <!-- Button to add food -->
         <a href="<?php echo SITEURL;?>admin/add-food.php" class="btn-primary">Add Food</a>
-        <br /> <br /> <br />
+        <br> <br> <br>
         <?php 
-            if(isset($_SESSION['add'])){
+            if(isset($_SESSION['add'])) {
                 echo $_SESSION['add'];
                 unset($_SESSION['add']);
+            }
+
+            if(isset($_SESSION['delete'])) {
+                echo $_SESSION['delete'];
+                unset($_SESSION['delete']);
+            }
+
+            if(isset($_SESSION['upload'])) {
+                echo $_SESSION['upload'];
+                unset($_SESSION['upload']);
+            }
+
+            if(isset($_SESSION['unauthorize'])) {
+                echo $_SESSION['unauthorize'];
+                unset($_SESSION['unauthorize']);
             }
         ?>
         <table class="tbl-full">
@@ -56,7 +71,7 @@
                                 <tr>
                                     <td><?php echo $sn++; ?>. </td>
                                     <td><?php echo $title; ?></td>
-                                    <td>$<?php echo $price; ?></td>
+                                    <td>Rs.<?php echo $price; ?></td>
                                     <td>
                                         <?php  
                                             //CHeck whether we have image or not
