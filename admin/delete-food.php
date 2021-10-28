@@ -4,22 +4,24 @@
 
     //echo "Delete Food Page";
 
-    if(isset($_GET['id']) AND isset($_GET['image_name'])) { //If we do not pass ID and Image name
+    if(isset($_GET['id']) && isset($_GET['image_name'])) //Either use '&&' or 'AND'
+    {
         //Process to Delete
         //echo "Process to Delete";
 
-        //1.  Get ID and Image Name
+        //1.  Get ID and Image NAme
         $id = $_GET['id'];
         $image_name = $_GET['image_name'];
 
         //2. Remove the Image if Available
-        //Check whether the image is available or not and Delete only if available
-        if($image_name != "") {
-            // It has image and need to remove from folder
+        //CHeck whether the image is available or not and Delete only if available
+        if($image_name != "")
+        {
+            // IT has image and need to remove from folder
             //Get the Image Path
             $path = "../images/food/".$image_name;
 
-            //Remove Image File from Folder
+            //REmove Image File from Folder
             $remove = unlink($path);
 
             //Check whether the image is removed or not
@@ -27,7 +29,7 @@
             {
                 //Failed to Remove image
                 $_SESSION['upload'] = "<div class='error'>Failed to Remove Image File.</div>";
-                //Redirect to Manage Food
+                //REdirect to Manage Food
                 header('location:'.SITEURL.'admin/manage-food.php');
                 //Stop the Process of Deleting Food
                 die();
@@ -55,11 +57,13 @@
             header('location:'.SITEURL.'admin/manage-food.php');
         }
 
+        
+
     }
     else
     {
         //Redirect to Manage Food Page
-        //echo "Redirect";
+        //echo "REdirect";
         $_SESSION['unauthorize'] = "<div class='error'>Unauthorized Access.</div>";
         header('location:'.SITEURL.'admin/manage-food.php');
     }

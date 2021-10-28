@@ -2,7 +2,8 @@
 
 <?php 
     //CHeck whether id is set or not 
-    if(isset($_GET['id'])) {
+    if(isset($_GET['id']))
+    {
         //Get all the details
         $id = $_GET['id'];
 
@@ -75,7 +76,7 @@
                         {
                             //Image Available
                             ?>
-                            <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width="120px">
+                            <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width="150px">
                             <?php
                         }
                     ?>
@@ -103,9 +104,11 @@
                             $count = mysqli_num_rows($res);
 
                             //Check whether category available or not
-                            if($count > 0) {
-                                //Category Available
-                                while($row = mysqli_fetch_assoc($res)) {
+                            if($count>0)
+                            {
+                                //CAtegory Available
+                                while($row=mysqli_fetch_assoc($res))
+                                {
                                     $category_title = $row['title'];
                                     $category_id = $row['id'];
                                     
@@ -115,8 +118,9 @@
                                     <?php
                                 }
                             }
-                            else {
-                                //Category Not Available
+                            else
+                            {
+                                //CAtegory Not Available
                                 echo "<option value='0'>Category Not Available.</option>";
                             }
 
@@ -157,7 +161,8 @@
 
         <?php 
         
-            if(isset($_POST['submit'])) {
+            if(isset($_POST['submit']))
+            {
                 //echo "Button Clicked";
 
                 //1. Get all the details from the form
@@ -182,7 +187,7 @@
                     //CHeck whether th file is available or not
                     if($image_name!="")
                     {
-                        //Image is Available
+                        //IMage is Available
                         //A. Uploading New Image
 
                         //REname the Image
@@ -200,7 +205,7 @@
                         /// CHeck whether the image is uploaded or not
                         if($upload==false)
                         {
-                            //Failed to Upload
+                            //FAiled to Upload
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload new Image.</div>";
                             //REdirect to Manage Food 
                             header('location:'.SITEURL.'admin/manage-food.php');
@@ -221,7 +226,7 @@
                             if($remove==false)
                             {
                                 //failed to remove current image
-                                $_SESSION['remove-failed'] = "<div class='error'>Failed to remove current image.</div>";
+                                $_SESSION['remove-failed'] = "<div class='error'>Faile to remove current image.</div>";
                                 //redirect to manage food
                                 header('location:'.SITEURL.'admin/manage-food.php');
                                 //stop the process
@@ -229,11 +234,13 @@
                             }
                         }
                     }
-                    else {
+                    else
+                    {
                         $image_name = $current_image; //Default Image when Image is Not Selected
                     }
                 }
-                else {
+                else
+                {
                     $image_name = $current_image; //Default Image when Button is not Clicked
                 }
 
@@ -255,18 +262,22 @@
                 $res3 = mysqli_query($conn, $sql3);
 
                 //CHeck whether the query is executed or not 
-                if($res3==true) {
+                if($res3==true)
+                {
                     //Query Exectued and Food Updated
                     $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
                     header('location:'.SITEURL.'admin/manage-food.php');
                 }
-                else {
+                else
+                {
                     //Failed to Update Food
                     $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
                     header('location:'.SITEURL.'admin/manage-food.php');
                 }
+
                 
             }
+        
         ?>
 
     </div>

@@ -95,7 +95,7 @@
                 //1. Get all the value from form
                 $id = $_POST['id'];
                 $title = $_POST['title'];
-                $current_image = $_POST['current_image'];
+                $current_image = $_POST['current_img'];
                 $featured = $_POST['featured'];
                 $active = $_POST['active'];
 
@@ -111,7 +111,7 @@
                     {
                         //Image Available
 
-                        //A. UPload the New Image
+                        //A. Upload the New Image
 
                         //Auto Rename our Image
                         //Get the Extension of our image (jpg, png, gif, etc) e.g. "specialfood1.jpg"
@@ -156,8 +156,6 @@
                                 die();//Stop the Process
                             }
                         }
-                        
-
                     }
                     else {
                         $image_name = $current_image;
