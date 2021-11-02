@@ -170,7 +170,7 @@
                 }
                 else
                 {
-                    //Failed to Update
+                    //Failed to Update.....
                     $_SESSION['update'] = "<div class='error'>Failed to Update Order.</div>";
                     header('location:'.SITEURL.'admin/manage-order.php');
                 }
