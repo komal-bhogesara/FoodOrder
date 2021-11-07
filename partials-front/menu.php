@@ -36,6 +36,23 @@
                     <li>
                         <a href="#">Contact</a>
                     </li>
+                    <?php 
+                        if(!isset($_SESSION['loggedin'])){ 
+                            ?>
+                                <li>
+                                    <a href="<?php echo SITEURL; ?>login.php.">Login</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo SITEURL; ?>register.php">Register</a>
+                                </li>
+                        <?php
+                        } else { ?>
+                                <li>
+                                    <a href="<?php echo SITEURL; ?>logout.php.">Logout</a>
+                                </li>
+                        <?php
+                        } ?>
+                    
                 </ul>
             </div>
 

@@ -18,6 +18,22 @@
             echo $_SESSION['order'];
             unset($_SESSION['order']);
         }
+        if(isset($_SESSION['loginmsg'])){
+            echo $_SESSION['loginmsg'];
+            unset($_SESSION['loginmsg']);
+        }
+        if(isset($_SESSION['loggedout'])){
+            echo $_SESSION['loggedout'];
+            unset($_SESSION['loggedout']);
+        }
+        if(isset($_SESSION['registered'])){
+            echo $_SESSION['registered'];
+            unset($_SESSION['registered']);
+        }
+        if(isset($_SESSION['reg-error'])){
+            echo $_SESSION['reg-error'];
+            unset($_SESSION['reg-error']);
+        }
     ?>
 
     <!-- CAtegories Section Starts Here -->
