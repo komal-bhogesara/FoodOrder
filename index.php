@@ -164,14 +164,12 @@
             }
             else
             {
-                //Food Not Available 
+                //Food Not Available.
                 echo "<div class='error'>Food not available.</div>";
             }
             
             ?>
-            <div class="clearfix"></div>
-
-            
+            <div class="clearfix"></div>    
 
         </div>
 
