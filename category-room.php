@@ -9,7 +9,7 @@
         //Category id is set and get the id
         $category_id = $_GET['category_id'];
         // Get the CAtegory Title Based on Category ID
-        $sql = "SELECT title FROM tbl_category WHERE id=$category_id";
+        $sql = "SELECT title FROM tbl_roomcategory WHERE id=$category_id";
 
         //Execute the Query
         $res = mysqli_query($conn, $sql);
@@ -31,7 +31,7 @@
     <section class="food-search text-center">
         <div class="container">
             
-            <h2>Foods on <a href="#" class="text-white">"<?php echo $category_title; ?>"</a></h2>
+            <h2>Rooms on <a href="#" class="text-white">"<?php echo $category_title; ?>"</a></h2>
 
         </div>
     </section>
@@ -42,12 +42,12 @@
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+            <h2 class="text-center">Rooms</h2>
 
             <?php 
             
                 //Create SQL Query to Get foods based on Selected CAtegory
-                $sql2 = "SELECT * FROM tbl_food WHERE category_id=$category_id";
+                $sql2 = "SELECT * FROM tbl_rooms WHERE category_id=$category_id";
 
                 //Execute the Query
                 $res2 = mysqli_query($conn, $sql2);
@@ -95,8 +95,8 @@
                                 </p>
                                 <br>
 
-                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
-                                <a href="<?php echo SITEURL; ?>addtocart.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a>
+                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Book Now</a>
+                                <!-- <a href="<?php echo SITEURL; ?>addtocart.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a> -->
                             </div>
                         </div>
 
@@ -106,7 +106,7 @@
                 else
                 {
                     //Food not available
-                    echo "<div class='error'>Food not Available.</div>";
+                    echo "<div class='error'>Room is not Available.</div>";
                 }
             
             ?>

@@ -2,11 +2,11 @@
 
 <div class="main-content">
     <div class="wrapper">
-        <h1>Manage Food</h1>
+        <h1>Manage Room</h1>
         <br /> <br />
 
         <!-- Button to add food -->
-        <a href="<?php echo SITEURL;?>admin/add-food.php" class="btn-primary">Add Food</a>
+        <a href="<?php echo SITEURL;?>admin/add-room.php" class="btn-primary">Add Room</a>
         <br /> <br /> <br />
         <?php 
             if(isset($_SESSION['add'])){
@@ -51,7 +51,7 @@
 
             <?php 
                         //Create a SQL Query to Get all the Food
-                        $sql = "SELECT * FROM tbl_food";
+                        $sql = "SELECT * FROM tbl_rooms";
 
                         //Execute the qUery
                         $res = mysqli_query($conn, $sql);
@@ -101,8 +101,8 @@
                                     <!-- <td><?php echo $featured; ?></td> -->
                                     <td><?php echo $active; ?></td>
                                     <td>
-                                        <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
-                                        <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
+                                        <a href="<?php echo SITEURL; ?>admin/update-room.php?id=<?php echo $id; ?>" class="btn-secondary">Update Room</a>
+                                        <a href="<?php echo SITEURL; ?>admin/delete-room.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Room</a>
                                     </td>
                                 </tr>
 
