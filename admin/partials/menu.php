@@ -21,6 +21,8 @@
                 <li><a href="manage-admin.php">Admin</a></li>
                 <li><a href="manage-category.php">Category</a></li>
                 <li><a href="manage-food.php">Food</a></li>
+                <li><a href="manage-roomcategory.php">Room Category</a></li>
+                <li><a href="manage-room.php">Rooms</a></li>
                 <li><a href="manage-order.php">Order</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>    

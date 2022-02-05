@@ -44,7 +44,7 @@
                 <th>Title</th>
                 <th>Price</th>
                 <th>Image</th>
-                <th>Featured</th>
+                <!-- <th>Featured</th> -->
                 <th>Active</th>
                 <th>Actions</th>
             </tr>
@@ -80,7 +80,7 @@
                                 <tr>
                                     <td><?php echo $sn++; ?>. </td>
                                     <td><?php echo $title; ?></td>
-                                    <td>$<?php echo $price; ?></td>
+                                    <td>Rs.<?php echo $price; ?></td>
                                     <td>
                                         <?php  
                                             //CHeck whether we have image or not
@@ -98,7 +98,7 @@
                                             }
                                         ?>
                                     </td>
-                                    <td><?php echo $featured; ?></td>
+                                    <!-- <td><?php echo $featured; ?></td> -->
                                     <td><?php echo $active; ?></td>
                                     <td>
                                         <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>

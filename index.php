@@ -18,6 +18,10 @@
             echo $_SESSION['order'];
             unset($_SESSION['order']);
         }
+        if(isset($_SESSION['email_sent'])){
+            echo $_SESSION['email_sent'];
+            unset($_SESSION['email_sent']);
+        }
         if(isset($_SESSION['loginmsg'])){
             echo $_SESSION['loginmsg'];
             unset($_SESSION['loginmsg']);
@@ -27,12 +31,20 @@
             unset($_SESSION['loggedout']);
         }
         if(isset($_SESSION['registered'])){
-            echo $_SESSION['registered'];
+            // echo $_SESSION['registered'];
             unset($_SESSION['registered']);
         }
         if(isset($_SESSION['reg-error'])){
             echo $_SESSION['reg-error'];
             unset($_SESSION['reg-error']);
+        }
+        if(isset($_SESSION['addtocart'])){
+            echo $_SESSION['addtocart'];
+            unset($_SESSION['addtocart']);
+        }
+        if(isset($_SESSION['orderPlaced'])){
+            echo $_SESSION['orderPlaced'];
+            unset($_SESSION['orderPlaced']);
         }
     ?>
 
@@ -149,13 +161,14 @@
 
                         <div class="food-menu-desc">
                             <h4><?php echo $title; ?></h4>
-                            <p class="food-price">$<?php echo $price; ?></p>
+                            <p class="food-price">Rs.<?php echo $price; ?></p>
                             <p class="food-detail">
                                 <?php echo $description; ?>
                             </p>
                             <br>
 
                             <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                            <a href="<?php echo SITEURL; ?>addtocart.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a>
                         </div>
                     </div>
 
@@ -170,9 +183,6 @@
             
             ?>
             <div class="clearfix"></div>
-
-            
-
         </div>
 
         <p class="text-center">

@@ -23,6 +23,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $sql = "INSERT INTO `users` (`username`, `password`, `date`, `email`, `contact`, `address`) VALUES ('$username', '$password', current_timestamp(), '$email', '$contact', '$address')";
             $result = mysqli_query($conn, $sql);
             $_SESSION['registered'] =  "<div class='success'>Registered Successfully! You can login now.</div>";
+            //sending email
+            // $to_email = "vatsal1505@gmail.com";
+            $subject = "Registration confirmation";
+            $body = "Hi, Thank you for registering on our site!";
+            $headers = "From: komal.bhogesara@gmail.com";
+
+            if(mail($email, $subject, $body, $headers)) {
+                $_SESSION['email_sent'] = "<div class='success'>Registered and Email successfully sent!</div>";
+            } else {
+                $_SESSION['email_sent'] = "<div class='error'>Email sending failed...</div>";
+            }
+
             header('location:'.SITEURL.'index.php');
         }else{
             $_SESSION['reg-error'] = "<div error='success'>Passwords do not match</div>";
