@@ -16,6 +16,10 @@
     <!-- Food Search Section Ends Here -->
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> vatsal
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
@@ -23,7 +27,12 @@
 
             <?php 
                 //Display Foods that are Active
+<<<<<<< HEAD
                 $sql = "SELECT * FROM tbl_rooms WHERE active='Yes'";
+=======
+                // $sql = "SELECT * FROM tbl_rooms WHERE active='Yes'";
+                $sql = "SELECT * FROM tbl_rooms";
+>>>>>>> vatsal
 
                 //Execute the Query
                 $res=mysqli_query($conn, $sql);
@@ -43,6 +52,10 @@
                         $description = $row['description'];
                         $price = $row['price'];
                         $image_name = $row['image_name'];
+<<<<<<< HEAD
+=======
+                        $active = $row['active'];
+>>>>>>> vatsal
                         ?>
                         
                         <div class="food-menu-box">
@@ -71,9 +84,25 @@
                                 <p class="food-detail">
                                     <?php echo $description; ?>
                                 </p>
+<<<<<<< HEAD
                                 <br>
 
                                 <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Book Now</a>
+=======
+                                <?php
+                                    if($active == 'No'){
+                                        ?>
+                                        <br>
+                                        <a class="btn" type="button" disabled>Booked</a>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <br>
+                                        <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Book Now</a>
+                                        <?php
+                                    }
+                                ?>
+>>>>>>> vatsal
                                 <!-- <a href="<?php echo SITEURL; ?>addtocart.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a> -->
                             </div>
                         </div>

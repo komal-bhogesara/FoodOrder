@@ -35,7 +35,11 @@
 
 <div class="main-content">
     <div class="wrapper">
+<<<<<<< HEAD
         <h1>Update Food</h1>
+=======
+        <h1>Update Room</h1>
+>>>>>>> vatsal
         <br><br>
 
         <form action="" method="POST" enctype="multipart/form-data">
@@ -151,7 +155,11 @@
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
 
+<<<<<<< HEAD
                     <input type="submit" name="submit" value="Update Food" class="btn-secondary">
+=======
+                    <input type="submit" name="submit" value="Update Room" class="btn-secondary">
+>>>>>>> vatsal
                 </td>
             </tr>
         
@@ -258,6 +266,16 @@
                     WHERE id=$id
                 ";
 
+<<<<<<< HEAD
+=======
+                if ($active == "Yes") {
+                    $sql4 = "DELETE FROM booked_rooms WHERE `room_id` = $id";
+                    
+                    //Execute the qUery
+                    $res4 = mysqli_query($conn, $sql4);
+                }
+
+>>>>>>> vatsal
                 //Execute the SQL Query
                 $res3 = mysqli_query($conn, $sql3);
 
@@ -275,7 +293,17 @@
                     header('location:'.SITEURL.'admin/manage-room.php');
                 }
 
+<<<<<<< HEAD
                 
+=======
+                if ($active == "Yes") {
+                    $sql4 = "DELETE FROM booked_rooms WHERE `id` = $room_id";
+                    
+                    //Execute the qUery
+                    $res4 = mysqli_query($conn, $sql4);
+                }
+
+>>>>>>> vatsal
             }
         
         ?>

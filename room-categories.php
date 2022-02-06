@@ -7,6 +7,27 @@
         <div class="container">
             <h2 class="text-center">Explore Rooms</h2>
 
+<<<<<<< HEAD
+=======
+            <form action="room-display.php " method="get"> 
+         <center><table >
+             <tr>
+                 
+                <th width="20%" height="50px" required>Check In Date</th>
+                 <th width="20%" height="50px" required>Check Out Date</th>
+                 <td rowspan="2"><input type="submit" name="sub" id="check-btn" value="Check"  ></td>
+             </tr>
+             <tr>
+                
+                <td width="20%" height="50px"><center><input type="date" name="ci" required></center></td>
+                 <td width="20%" height="50px"><center><input type="date" name="co" required></center></td>
+            </form>
+           
+                 </td>
+             </tr>
+         </table></center>
+
+>>>>>>> vatsal
             <?php 
 
                 //Display all the cateories that are active

@@ -44,7 +44,12 @@
                 <th>Title</th>
                 <th>Price</th>
                 <th>Image</th>
+<<<<<<< HEAD
                 <!-- <th>Featured</th> -->
+=======
+                <th>Check-In</th>
+                <th>Check-Out</th>
+>>>>>>> vatsal
                 <th>Active</th>
                 <th>Actions</th>
             </tr>
@@ -75,6 +80,7 @@
                                 $image_name = $row['image_name'];
                                 $featured = $row['featured'];
                                 $active = $row['active'];
+<<<<<<< HEAD
                                 ?>
 
                                 <tr>
@@ -107,12 +113,106 @@
                                 </tr>
 
                                 <?php
+=======
+                                
+                                $sql1 = "SELECT * FROM booked_rooms where `room_id` = $id";
+
+                                //Execute the qUery
+                                $res1 = mysqli_query($conn, $sql1);
+
+                                //Count Rows to check whether we have foods or not
+                                $count1 = mysqli_num_rows($res1);
+
+                                if($count1>0)
+                                {
+                                    while($row1=mysqli_fetch_assoc($res1))
+                                    {
+                                        $ci = $row1['ci'];
+                                        $co = $row1['co'];
+
+                                        ?>
+
+                                        <tr>
+                                            <td><?php echo $sn++; ?>. </td>
+                                            <td><?php echo $title; ?></td>
+                                            <td>Rs.<?php echo $price; ?></td>
+                                            <td>
+                                                <?php  
+                                                    //CHeck whether we have image or not
+                                                    if($image_name=="")
+                                                    {
+                                                        //WE do not have image, Dislpay Error Message
+                                                        echo "<div class='error'>Image not Added.</div>";
+                                                    }
+                                                    else
+                                                    {
+                                                        //WE Have Image, Display Image
+                                                        ?>
+                                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" width="100px">
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </td>
+                                            <td><?php echo $ci; ?></td>
+                                            <td><?php echo $co; ?></td>
+                                            <!-- <td><?php echo $featured; ?></td> -->
+                                            <td><?php echo $active; ?></td>
+                                            <td>
+                                                <a href="<?php echo SITEURL; ?>admin/update-room.php?id=<?php echo $id; ?>" class="btn-secondary">Update Room</a>
+                                                <a href="<?php echo SITEURL; ?>admin/delete-room.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Room</a>
+                                            </td>
+                                        </tr>
+
+                                        <?php
+                                    }
+                                }
+
+                                else {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $sn++; ?>. </td>
+                                        <td><?php echo $title; ?></td>
+                                        <td>Rs.<?php echo $price; ?></td>
+                                        <td>
+                                            <?php  
+                                                //CHeck whether we have image or not
+                                                if($image_name=="")
+                                                {
+                                                    //WE do not have image, Dislpay Error Message
+                                                    echo "<div class='error'>Image not Added.</div>";
+                                                }
+                                                else
+                                                {
+                                                    //WE Have Image, Display Image
+                                                    ?>
+                                                    <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" width="100px">
+                                                    <?php
+                                                }
+                                            ?>
+                                        </td>
+                                        <td>NA</td>
+                                        <td>NA</td>
+                                        <!-- <td><?php echo $featured; ?></td> -->
+                                        <td><?php echo $active; ?></td>
+                                        <td>
+                                            <a href="<?php echo SITEURL; ?>admin/update-room.php?id=<?php echo $id; ?>" class="btn-secondary">Update Room</a>
+                                            <a href="<?php echo SITEURL; ?>admin/delete-room.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Room</a>
+                                        </td>
+                                    </tr>
+
+                                    <?php
+                                }
+>>>>>>> vatsal
                             }
                         }
                         else
                         {
                             //Food not Added in Database
+<<<<<<< HEAD
                             echo "<tr> <td colspan='7' class='error'> Food not Added Yet. </td> </tr>";
+=======
+                            echo "<tr> <td colspan='7' class='error'> Room not Added Yet. </td> </tr>";
+>>>>>>> vatsal
                         }
 
                     ?>
