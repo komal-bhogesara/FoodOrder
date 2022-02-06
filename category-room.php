@@ -66,10 +66,7 @@
                         $price = $row2['price'];
                         $description = $row2['description'];
                         $image_name = $row2['image_name'];
-<<<<<<< HEAD
-=======
                         $active = $row2['active'];
->>>>>>> vatsal
                         ?>
                         
                         <div class="food-menu-box">
@@ -97,11 +94,6 @@
                                 <p class="food-detail">
                                     <?php echo $description; ?>
                                 </p>
-<<<<<<< HEAD
-                                <br>
-
-                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Book Now</a>
-=======
                                 <?php
                                     if($active == 'No'){
                                         ?>
@@ -115,7 +107,6 @@
                                         <?php
                                     }
                                 ?>
->>>>>>> vatsal
                                 <!-- <a href="<?php echo SITEURL; ?>addtocart.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a> -->
                             </div>
                         </div>
