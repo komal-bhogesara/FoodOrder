@@ -35,7 +35,7 @@
 
 <div class="main-content">
     <div class="wrapper">
-        <h1>Update Food</h1>
+        <h1>Update Room</h1>
         <br><br>
 
         <form action="" method="POST" enctype="multipart/form-data">
@@ -151,7 +151,7 @@
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
 
-                    <input type="submit" name="submit" value="Update Food" class="btn-secondary">
+                    <input type="submit" name="submit" value="Update Room" class="btn-secondary">
                 </td>
             </tr>
         

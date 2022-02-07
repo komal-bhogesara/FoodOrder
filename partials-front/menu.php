@@ -47,7 +47,7 @@
                         if(!isset($_SESSION['loggedin'])){ 
                     ?>
                             <li>
-                                <a href="<?php echo SITEURL; ?>login.php.">Login</a>
+                                <a href="<?php echo SITEURL; ?>login.php">Login</a>
                             </li>
                             <li>
                                 <a href="<?php echo SITEURL; ?>register.php">Register</a>
@@ -55,9 +55,6 @@
                     <?php
                         } else { 
                     ?>
-                            <li>
-                                <a href="<?php echo SITEURL; ?>book-table.php">Book Table</a>
-                            </li>
                             <li>
                                 <a href="<?php echo SITEURL; ?>logout.php.">Logout</a>
                             </li>

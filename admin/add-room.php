@@ -95,7 +95,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Food" class="btn-secondary">
+                        <input type="submit" name="submit" value="Add Room" class="btn-secondary">
                     </td>
                 </tr>
             </table>
@@ -203,13 +203,13 @@
                 if($res2 == true)
                 {
                     //Data inserted Successfullly
-                    $_SESSION['add'] = "<div class='success'>Food Added Successfully.</div>";
+                    $_SESSION['add'] = "<div class='success'>Room Added Successfully.</div>";
                     header('location:'.SITEURL.'admin/manage-room.php');
                 }
                 else
                 {
                     //FAiled to Insert Data
-                    $_SESSION['add'] = "<div class='error'>Failed to Add Food.</div>";
+                    $_SESSION['add'] = "<div class='error'>Failed to Add Room.</div>";
                     header('location:'.SITEURL.'admin/manage-room.php');
                 }
 

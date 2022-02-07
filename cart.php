@@ -98,9 +98,22 @@ while($row = mysqli_fetch_assoc($result)){
 </tr>
 </tbody>
 </table>
-<form method='post' action=''>
-    <button type='submit' name='placeOrder' class='btn btn-primary'>Place Order</button>
-</form>		
+
+<?php
+if(isset($_SESSION['loggedin'])){
+    ?>
+    <br>
+    <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Place Order</a>
+    <?php 
+}
+
+else {
+    ?>
+    <br>
+    <a href="<?php echo SITEURL; ?>login.php" class="btn btn-primary">Place Order</a>
+    <?php 
+}
+?>		
 
 </fieldset>
 <?php

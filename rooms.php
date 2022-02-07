@@ -24,7 +24,8 @@
 
             <?php 
                 //Display Foods that are Active
-                $sql = "SELECT * FROM tbl_rooms WHERE active='Yes'";
+                // $sql = "SELECT * FROM tbl_rooms WHERE active='Yes'";
+                $sql = "SELECT * FROM tbl_rooms";
 
                 //Execute the Query
                 $res=mysqli_query($conn, $sql);
@@ -44,6 +45,7 @@
                         $description = $row['description'];
                         $price = $row['price'];
                         $image_name = $row['image_name'];
+                        $active = $row['active'];
                         ?>
                         
                         <div class="food-menu-box">
@@ -59,7 +61,7 @@
                                     {
                                         //Image Available
                                         ?>
-                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicken Hawain Pizza" class="img-responsive img-curve">
                                         <?php
                                     }
                                 ?>
@@ -72,9 +74,30 @@
                                 <p class="food-detail">
                                     <?php echo $description; ?>
                                 </p>
-                                <br>
+                                <?php
+                                    if($active == 'No'){
+                                        ?>
+                                        <!-- <p class='error'>Booked</p> -->
+                                        <br>
+                                        <a class="btn" type="button" disabled>Booked</a>
+                                        <?php
+                                    } else {
+                                        if(isset($_SESSION['loggedin'])){
+                                            ?>
+                                            <br>
+                                            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Book Now</a>
+                                            <?php 
+                                        }
 
-                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Book Now</a>
+                                        else {
+                                            ?>
+                                            <br>
+                                            <a href="<?php echo SITEURL; ?>login.php" class="btn btn-primary">Book Now</a>
+                                            <?php 
+                                        }
+                                        
+                                    }
+                                ?>
                                 <!-- <a href="<?php echo SITEURL; ?>addtocart.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Add to cart</a> -->
                             </div>
                         </div>
